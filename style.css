@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+.uppercase{
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 200%;
+    text-shadow: 0px 0px 10px rgba(93, 93, 93, 0.52);
+    color: #343a40;
+}
+.btn:focus{
+    box-shadow: none;
+}
+.botaoNew, .botaoTry, .facil, .dificil{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.botaoNew:hover{
+    text-shadow: 0px 0px 3px #04c4ff;
+}
+.botaoTry:hover{
+    text-shadow: 0px 0px 3px #5d5d5d;
+}
+.botaoCores{
+    width: 20%;
+    height: 150px;
+    background: #4bbde0;
+}
+.linha{
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
