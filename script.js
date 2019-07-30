@@ -1,3 +1,32 @@
+/* Configuração do Modal */
+
+var modalPerfil = document.querySelector("#modalPerfil")
+var btnPerfil = document.querySelector("#btnPerfil")
+var nome = document.querySelector("#perfil")
+var digNome = document.querySelector("#setNome")
+var localPerfil = document.querySelector("#localPerfil")
+
+modalPerfil.style.display = "block"
+
+btnPerfil.addEventListener("click", function(){
+    if(nome.value !== "" && nome.value.length <= 8){
+        modalPerfil.style.display = "none"
+    }else{
+        digNome.style.color = "#dc3545"
+        digNome.style.fontWeight = "400"
+        btnPerfil.classList.add("btn-danger")
+        nome.focus()
+    }
+    localPerfil.innerHTML = '<i class="fas fa-user-circle"></i> ' + nome.value
+})
+
+/* Configuração da pontuação */
+
+var positivo = 6
+var negativo = 0
+var result = 0
+var resultadoFinal = document.querySelector("#resultado")
+
 /* Início da configuração dos botões de dificuldade */
 var facil = document.querySelector(".facil")
 var dificil = document.querySelector(".dificil")
@@ -105,7 +134,7 @@ cor5.style.background = corAleatoria()
 cor6.style.background = corAleatoria()
 
 var quadradoSorteado = quadradoCor[(Math.random() * quadradoCor.length) | 0]
-var colors = gerarCores(66)
+var colors = gerarCores(150)
 
 
 function gerarCores(num){
@@ -142,10 +171,18 @@ for (var i = 0; i < coresClick.length; i++){
     var backgroundTop = document.querySelector(".uppercase");
 
     coresClick[i].addEventListener("click", function game(){
-        
+
         if (this === quadradoSorteado){
             h1.textContent = "Você acertou a cor!"
             backgroundTop.style.color = sorteio
+            positivo++
+
+            result = positivo-negativo
+
+            resultadoFinal.textContent = 'Pontos: ' + result
+
+            /* COLOCAR UM CONTADOR AQUI */
+
                 if(cor3.style.height == "300px"){
                     cor1.style.display = "block"
                     cor2.style.display = "block"
@@ -169,6 +206,7 @@ for (var i = 0; i < coresClick.length; i++){
                 }
         }else if(backgroundTop.style.color !== sorteio){
             this.style.display = "none";
+            negativo++;
         }
     })
 }

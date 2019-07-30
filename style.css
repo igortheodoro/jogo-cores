@@ -28,5 +28,19 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-
+#modalPerfil{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#localPerfil, #resultado{
+    font-size: 1.5rem;
+}
+@media (max-width: 600px) 
+{
+  .fixed-top{
+    display: flex;
+    position: relative;
+    background: white;
+    justify-content: center;
+   }
+}
 
