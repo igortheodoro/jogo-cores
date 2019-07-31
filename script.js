@@ -7,6 +7,7 @@ var digNome = document.querySelector("#setNome")
 var localPerfil = document.querySelector("#localPerfil")
 
 modalPerfil.style.display = "block"
+nome.focus()
 
 btnPerfil.addEventListener("click", function(){
     if(nome.value !== "" && nome.value.length <= 8){
@@ -15,17 +16,19 @@ btnPerfil.addEventListener("click", function(){
         digNome.style.color = "#dc3545"
         digNome.style.fontWeight = "400"
         btnPerfil.classList.add("btn-danger")
-        nome.focus()
     }
     localPerfil.innerHTML = '<i class="fas fa-user-circle"></i> ' + nome.value
 })
 
 /* Configuração da pontuação */
 
-var positivo = 6
+var positivo = 4
 var negativo = 0
 var result = 0
 var resultadoFinal = document.querySelector("#resultado")
+
+
+
 
 /* Início da configuração dos botões de dificuldade */
 var facil = document.querySelector(".facil")
@@ -39,14 +42,21 @@ var cor5 = document.querySelector(".cor5")
 var cor6 = document.querySelector(".cor6")
 
 /* Botão fácil */
-facil.addEventListener("click", function funcfacil(){
+facil.addEventListener("click", function(){
+
+    quadradoCor.splice(3,4)
+    sorteio = colors[(Math.random() * colors.length) | 0];
+    quadradoSorteado = quadradoCor[(Math.random() * quadradoCor.length) | 0]
 
     cor1.style.background = corAleatoria()
     cor2.style.background = corAleatoria()
     cor3.style.background = corAleatoria()
-    cor4.style.background = corAleatoria()
-    cor5.style.background = corAleatoria()
-    cor6.style.background = corAleatoria()
+
+    labelCor.textContent = sorteio;
+    quadradoSorteado.style.background = sorteio;
+    h1.textContent = "A cor é: "
+    backgroundTop.style.color = "#343a40"
+
 
     backgroundTop.style.color = "#343a40"
 
@@ -69,19 +79,17 @@ facil.addEventListener("click", function funcfacil(){
     dificil.style.background = "none"
     dificil.style.color = "black"
 
-    quadradoCor = [cor1, cor2, cor3]
-    quadradoSorteado
-    colors
-    sorteio
-
-    labelCor.textContent = sorteio;
-
-    quadradoSorteado.style.background = sorteio;
-
 })
 
 /* Botão Difícil */
-dificil.addEventListener("click", function funcdificil(){
+dificil.addEventListener("click", function(){
+
+        
+    quadradoCor = [cor1, cor2, cor3, cor4, cor5, cor6]
+    quadradoSorteado = quadradoCor[(Math.random() * quadradoCor.length) | 0];
+    colors
+    sorteio
+
 
     cor1.style.background = corAleatoria()
     cor2.style.background = corAleatoria()
@@ -91,12 +99,6 @@ dificil.addEventListener("click", function funcdificil(){
     cor6.style.background = corAleatoria()
 
     backgroundTop.style.color = "#343a40"
-    
-    quadradoCor = [cor1, cor2, cor3, cor4, cor5, cor6]
-    quadradoSorteado 
-    colors
-    sorteio
-
     h1.textContent = "A cor é: "
 
     labelCor.textContent = sorteio;
@@ -176,12 +178,11 @@ for (var i = 0; i < coresClick.length; i++){
             h1.textContent = "Você acertou a cor!"
             backgroundTop.style.color = sorteio
             positivo++
-
+        
             result = positivo-negativo
 
             resultadoFinal.textContent = 'Pontos: ' + result
 
-            /* COLOCAR UM CONTADOR AQUI */
 
                 if(cor3.style.height == "300px"){
                     cor1.style.display = "block"
@@ -249,7 +250,8 @@ tentarNov.addEventListener("click", function (){
 /* Configuração botão Novas Cores */
 var novasCores = document.querySelector(".botaoNew")
 
-novasCores.addEventListener("click", function (){
+const newColorsBtn = novasCores.addEventListener("click", function(){
+
     sorteio = colors[(Math.random() * colors.length) | 0];
     quadradoSorteado = quadradoCor[(Math.random() * quadradoCor.length) | 0]
 
