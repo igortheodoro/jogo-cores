@@ -13,6 +13,7 @@
 }
 .botaoNew, .botaoTry, .facil, .dificil{
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 120%;
 }
 .botaoNew:hover{
     text-shadow: 0px 0px 3px #04c4ff;

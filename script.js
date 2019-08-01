@@ -6,6 +6,7 @@ var nome = document.querySelector("#perfil")
 var digNome = document.querySelector("#setNome")
 var localPerfil = document.querySelector("#localPerfil")
 
+
 modalPerfil.style.display = "block"
 nome.focus()
 
@@ -223,6 +224,8 @@ for (var i = 0; i < coresClick.length; i++){
 var tentarNov = document.querySelector(".botaoTry")
 
 tentarNov.addEventListener("click", function (){
+
+    positivo--
 
     cor1.style.background = corAleatoria()
     cor2.style.background = corAleatoria()
