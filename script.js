@@ -22,10 +22,21 @@ btnPerfil.addEventListener("click", function(){
 
 /* Configuração da pontuação */
 
-var positivo = 4
+var positivo = 5
 var negativo = 0
 var result = 0
 var resultadoFinal = document.querySelector("#resultado")
+
+function pontGame(){
+    positivo++
+    result = positivo-negativo
+    if (result < 0){
+        resultadoFinal.textContent = 'Pontuação negativa.'
+    }else{
+        resultadoFinal.textContent = 'Pontos: ' + result
+    }
+
+}
 
 
 
@@ -177,11 +188,7 @@ for (var i = 0; i < coresClick.length; i++){
         if (this === quadradoSorteado){
             h1.textContent = "Você acertou a cor!"
             backgroundTop.style.color = sorteio
-            positivo++
-        
-            result = positivo-negativo
-
-            resultadoFinal.textContent = 'Pontos: ' + result
+            pontGame()
 
 
                 if(cor3.style.height == "300px"){
